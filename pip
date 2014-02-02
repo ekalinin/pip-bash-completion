@@ -4,7 +4,7 @@ _pip() {
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
 
-    commands=$(pip --help | grep -E -o "^\s{2}\w*\:" | tr -d ' ' | tr -d ':')
+    commands=$(pip --help | awk '/Commands\:/,/General Options\:/' | grep -E -o "^\s{2}\w*" | tr -d ' ')
     #opts=$(pip --help | grep -P -o "((-\w{1}|--[\w-]*=?)){1,2}")
     opts=$(pip --help | grep -E -o "((-\w{1}|--(\w|-)*=?)){1,2}")
 
