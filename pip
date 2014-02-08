@@ -21,6 +21,6 @@ _pip() {
     fi
 }
 
-complete -F _pip pip
+complete -o default -F _pip pip
 
 # /* vim: set filetype=sh : */
