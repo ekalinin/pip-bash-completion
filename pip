@@ -4,8 +4,8 @@ _pip() {
     prev="${COMP_WORDS[COMP_CWORD-1]}"
 
     commands=$(pip --help | awk '/Commands\:/,/General Options\:/' | \
-               grep -E -o "^\s{2}\w*" | tr -d ' ')
-    opts=$(pip --help | grep -E -o "((-\w{1}|--(\w|-)*=?)){1,2}")
+               \grep -E -o "^\s{2}\w*" | tr -d ' ')
+    opts=$(pip --help | \grep -E -o "((-\w{1}|--(\w|-)*=?)){1,2}")
 
 
     if [ $COMP_CWORD == 1 ] ; then
@@ -15,7 +15,7 @@ _pip() {
 
     if [[ ${cur} == -* ]] ; then
         local command_opts=$(pip $prev --help | \
-                             grep -E -o "((-\w{1}|--(\w|-)*=?)){1,2}")
+                             \grep -E -o "((-\w{1}|--(\w|-)*=?)){1,2}")
         COMPREPLY=( $(compgen -W "${command_opts}" -- ${cur}) )
         return 0
     fi
