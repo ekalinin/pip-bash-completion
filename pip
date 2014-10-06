@@ -5,7 +5,7 @@ _pip() {
     first="${COMP_WORDS[0]}"
 
     commands=$($first --help | awk '/Commands\:/,/General Options\:/' | \
-               \grep -E -o "^\s{2}\w*" | tr -d ' ')
+               \grep -E -o "^\s{2}\w+" | tr -d ' ')
     opts=$($first --help | \grep -E -o "((-\w{1}|--(\w|-)*=?)){1,2}")
 
 
