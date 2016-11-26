@@ -8,7 +8,7 @@ Bash autocompletion for [pip](https://github.com/pypa/pip).
 
 Global:
 
-    $ git clone git://github.com/ekalinin/pip-bash-completion.git
+    $ git clone https://github.com/ekalinin/pip-bash-completion.git
     $ sudo cp ./pip-bash-completion/pip /etc/bash_completion.d/
     $ . /etc/bash_completion.d/pip
 
